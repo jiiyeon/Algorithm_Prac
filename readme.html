@@ -1,0 +1,629 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Baekjoon Practice</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="0ebdb4cc-b12a-4a75-9a93-0a5fa6f721ad" class="page sans"><header><div class="page-header-icon undefined"><span class="icon">🐑</span></div><h1 class="page-title">Baekjoon Practice</h1></header><div class="page-body"><p id="66f3e0a6-6743-452d-be85-802b1a5871cf" class="">Baekjoon Online Judge의 단계별 알고리즘 문제풀이</p><ul id="8c5465a5-5929-4edc-8899-609871626739" class="bulleted-list"><li>기간 : 2021년 5월 2일 ~</li></ul><ul id="07cac96d-691e-4076-bc00-04b5e6e9cbbc" class="bulleted-list"><li>사용언어 : python3</li></ul><p id="c0e47d6f-8cc9-4904-b554-e28900e801f2" class="">
+</p><div id="a5e64e19-6334-47b2-8142-8df10b8b6b96" class="collection-content"><h4 class="collection-title">Stage 01 - 40</h4><table class="collection-content"><thead><tr><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesTitle"><path d="M7.73943662,8.6971831 C7.77640845,8.7834507 7.81338028,8.8943662 7.81338028,9.00528169 C7.81338028,9.49823944 7.40669014,9.89260563 6.91373239,9.89260563 C6.53169014,9.89260563 6.19894366,9.64612676 6.08802817,9.30105634 L5.75528169,8.33978873 L2.05809859,8.33978873 L1.72535211,9.30105634 C1.61443662,9.64612676 1.2693662,9.89260563 0.887323944,9.89260563 C0.394366197,9.89260563 0,9.49823944 0,9.00528169 C0,8.8943662 0.0246478873,8.7834507 0.0616197183,8.6971831 L2.46478873,2.48591549 C2.68661972,1.90669014 3.24119718,1.5 3.90669014,1.5 C4.55985915,1.5 5.12676056,1.90669014 5.34859155,2.48591549 L7.73943662,8.6971831 Z M2.60035211,6.82394366 L5.21302817,6.82394366 L3.90669014,3.10211268 L2.60035211,6.82394366 Z M11.3996479,3.70598592 C12.7552817,3.70598592 14,4.24823944 14,5.96126761 L14,9.07922535 C14,9.52288732 13.6549296,9.89260563 13.2112676,9.89260563 C12.8169014,9.89260563 12.471831,9.59683099 12.4225352,9.19014085 C12.028169,9.6584507 11.3257042,9.95422535 10.5492958,9.95422535 C9.60035211,9.95422535 8.47887324,9.31338028 8.47887324,7.98239437 C8.47887324,6.58978873 9.60035211,6.08450704 10.5492958,6.08450704 C11.3380282,6.08450704 12.040493,6.33098592 12.4348592,6.81161972 L12.4348592,5.98591549 C12.4348592,5.38204225 11.9172535,4.98767606 11.1285211,4.98767606 C10.6602113,4.98767606 10.2411972,5.11091549 9.80985915,5.38204225 C9.72359155,5.43133803 9.61267606,5.46830986 9.50176056,5.46830986 C9.18133803,5.46830986 8.91021127,5.1971831 8.91021127,4.86443662 C8.91021127,4.64260563 9.0334507,4.44542254 9.19366197,4.34683099 C9.87147887,3.90316901 10.6232394,3.70598592 11.3996479,3.70598592 Z M11.1778169,8.8943662 C11.6830986,8.8943662 12.1760563,8.72183099 12.4348592,8.37676056 L12.4348592,7.63732394 C12.1760563,7.29225352 11.6830986,7.11971831 11.1778169,7.11971831 C10.5616197,7.11971831 10.056338,7.45246479 10.056338,8.0193662 C10.056338,8.57394366 10.5616197,8.8943662 11.1778169,8.8943662 Z M0.65625,11.125 L13.34375,11.125 C13.7061869,11.125 14,11.4188131 14,11.78125 C14,12.1436869 13.7061869,12.4375 13.34375,12.4375 L0.65625,12.4375 C0.293813133,12.4375 4.43857149e-17,12.1436869 0,11.78125 C-4.43857149e-17,11.4188131 0.293813133,11.125 0.65625,11.125 Z"></path></svg></span>과제</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>문제수</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>DONE</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesText"><path d="M7,4.56818 C7,4.29204 6.77614,4.06818 6.5,4.06818 L0.5,4.06818 C0.223858,4.06818 0,4.29204 0,4.56818 L0,5.61364 C0,5.88978 0.223858,6.11364 0.5,6.11364 L6.5,6.11364 C6.77614,6.11364 7,5.88978 7,5.61364 L7,4.56818 Z M0.5,1 C0.223858,1 0,1.223858 0,1.5 L0,2.54545 C0,2.8216 0.223858,3.04545 0.5,3.04545 L12.5,3.04545 C12.7761,3.04545 13,2.8216 13,2.54545 L13,1.5 C13,1.223858 12.7761,1 12.5,1 L0.5,1 Z M0,8.68182 C0,8.95796 0.223858,9.18182 0.5,9.18182 L11.5,9.18182 C11.7761,9.18182 12,8.95796 12,8.68182 L12,7.63636 C12,7.36022 11.7761,7.13636 11.5,7.13636 L0.5,7.13636 C0.223858,7.13636 0,7.36022 0,7.63636 L0,8.68182 Z M0,11.75 C0,12.0261 0.223858,12.25 0.5,12.25 L9.5,12.25 C9.77614,12.25 10,12.0261 10,11.75 L10,10.70455 C10,10.4284 9.77614,10.20455 9.5,10.20455 L0.5,10.20455 C0.223858,10.20455 0,10.4284 0,10.70455 L0,11.75 Z"></path></svg></span>과제2</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesNumber"><path d="M4.46191,0 C3.8667,0 3.38428,0.482422 3.38428,1.07751 L3.38428,3.38425 L1.07764,3.38425 C0.482422,3.38425 0,3.86667 0,4.46179 C0,5.05688 0.482422,5.53931 1.07764,5.53931 L3.38428,5.53931 L3.38428,8.46063 L1.07764,8.46063 C0.482422,8.46063 0,8.94308 0,9.53818 C0,10.1333 0.482422,10.6157 1.07764,10.6157 L3.38428,10.6157 L3.38428,12.9224 C3.38428,13.5175 3.8667,13.9999 4.46191,13.9999 C5.05664,13.9999 5.53906,13.5175 5.53906,12.9224 L5.53906,10.6157 L8.46045,10.6157 L8.46045,12.9224 C8.46045,13.5175 8.94287,13.9999 9.53809,13.9999 C10.1333,13.9999 10.6157,13.5175 10.6157,12.9224 L10.6157,10.6157 L12.9224,10.6157 C13.5176,10.6157 14,10.1333 14,9.53818 C14,8.94308 13.5176,8.46063 12.9224,8.46063 L10.6157,8.46063 L10.6157,5.53931 L12.9224,5.53931 C13.5176,5.53931 14,5.05688 14,4.46179 C14,3.86667 13.5176,3.38425 12.9224,3.38425 L10.6157,3.38425 L10.6157,1.07751 C10.6157,0.482422 10.1333,0 9.53809,0 C8.94287,0 8.46045,0.482422 8.46045,1.07751 L8.46045,3.38425 L5.53906,3.38425 L5.53906,1.07751 C5.53906,0.482422 5.05664,0 4.46191,0 Z M5.53906,8.46063 L5.53906,5.53931 L8.46045,5.53931 L8.46045,8.46063 L5.53906,8.46063 Z"></path></svg></span>문제수2</th><th><span class="icon property-icon"><svg viewBox="0 0 14 14" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.4);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesDate"><path d="M10.8889,5.5 L3.11111,5.5 L3.11111,7.05556 L10.8889,7.05556 L10.8889,5.5 Z M12.4444,1.05556 L11.6667,1.05556 L11.6667,0 L10.1111,0 L10.1111,1.05556 L3.88889,1.05556 L3.88889,0 L2.33333,0 L2.33333,1.05556 L1.55556,1.05556 C0.692222,1.05556 0.00777777,1.75556 0.00777777,2.61111 L0,12.5 C0,13.3556 0.692222,14 1.55556,14 L12.4444,14 C13.3,14 14,13.3556 14,12.5 L14,2.61111 C14,1.75556 13.3,1.05556 12.4444,1.05556 Z M12.4444,12.5 L1.55556,12.5 L1.55556,3.94444 L12.4444,3.94444 L12.4444,12.5 Z M8.55556,8.61111 L3.11111,8.61111 L3.11111,10.1667 L8.55556,10.1667 L8.55556,8.61111 Z"></path></svg></span>DONE2</th></tr></thead><tbody><tr id="54995650-9007-461a-9942-334c8ab893b8"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/01%20%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%85%E1%85%A7%E1%86%A8%E1%84%80%E1%85%AA%20%E1%84%89%E1%85%A1%E1%84%8E%E1%85%B5%E1%86%A8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%20549956509007461a9942334c8ab893b8.html">01 입출력과 사칙연산</a></td><td class="cell-:KSy">11</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>21</strong> 이분 탐색</td><td class="cell-N{wY">7</td><td class="cell-]yKg"></td></tr><tr id="1cfaeac0-b549-4548-bf85-353887baaf68"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/02%20if%E1%84%86%E1%85%AE%E1%86%AB%201cfaeac0b5494548bf85353887baaf68.html">02 if문</a></td><td class="cell-:KSy">5</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>22</strong> 우선순위 큐</td><td class="cell-N{wY">4</td><td class="cell-]yKg"></td></tr><tr id="c69a29d6-9e48-4e05-8f55-92a9c7d24ad8"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/03%20for%E1%84%86%E1%85%AE%E1%86%AB%20c69a29d69e484e058f5592a9c7d24ad8.html">03 for문</a></td><td class="cell-:KSy">11</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>23</strong> 동적 계획법2</td><td class="cell-N{wY">7</td><td class="cell-]yKg"></td></tr><tr id="b4413537-7e21-4f7a-80a3-d6fd1e3f3955"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/04%20while%E1%84%86%E1%85%AE%E1%86%AB%20b44135377e214f7a80a3d6fd1e3f3955.html">04 while문</a></td><td class="cell-:KSy">3</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>24</strong> DFS BFS</td><td class="cell-N{wY">11</td><td class="cell-]yKg"></td></tr><tr id="083cd604-55a0-4ecd-8177-0dcc298ea848"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/05%201%E1%84%8E%E1%85%A1%E1%84%8B%E1%85%AF%E1%86%AB%20%E1%84%87%E1%85%A2%E1%84%8B%E1%85%A7%E1%86%AF%20083cd60455a04ecd81770dcc298ea848.html">05 1차원 배열</a></td><td class="cell-:KSy">7</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>25</strong> 최단 경로</td><td class="cell-N{wY">7</td><td class="cell-]yKg"></td></tr><tr id="a8924214-418c-49d1-8526-98a782f685d4"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/06%20%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%20a8924214418c49d1852698a782f685d4.html">06 함수</a></td><td class="cell-:KSy">3</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>26</strong> 투 포인터</td><td class="cell-N{wY">5</td><td class="cell-]yKg"></td></tr><tr id="a3002023-ede4-445e-b53f-7810c348b0e2"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/07%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%AF%20a3002023ede4445eb53f7810c348b0e2.html">07 문자열</a></td><td class="cell-:KSy">10</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>27</strong> 동적 계획법과 최단거리 역추적</td><td class="cell-N{wY">9</td><td class="cell-]yKg"></td></tr><tr id="5b0c5462-8693-4d64-adc3-974f761a4a2c"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/08%20%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB%20%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A81%205b0c546286934d64adc3974f761a4a2c.html">08 기본 수학1</a></td><td class="cell-:KSy">9</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>28</strong> 트리</td><td class="cell-N{wY">7</td><td class="cell-]yKg"></td></tr><tr id="67c634ce-6f21-4f28-bea2-e28ad42f69ec"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/09%20%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB%20%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A82%2067c634ce6f214f28bea2e28ad42f69ec.html">09 기본 수학2</a></td><td class="cell-:KSy">11</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>29</strong> 유니온 파인드</td><td class="cell-N{wY">4</td><td class="cell-]yKg"></td></tr><tr id="0e820f83-2b8e-4fd6-84f2-c9851aef6c9e"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/10%20%E1%84%8C%E1%85%A2%E1%84%80%E1%85%B1%200e820f832b8e4fd684f2c9851aef6c9e.html">10 재귀</a></td><td class="cell-:KSy">4</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>30</strong> 최소 신장 트리</td><td class="cell-N{wY">6</td><td class="cell-]yKg"></td></tr><tr id="d56d369f-2eb2-4f72-938b-4430b97f26e4"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/11%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%AE%E1%84%90%E1%85%B3%20%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%20d56d369f2eb24f72938b4430b97f26e4.html">11 브루트 포스</a></td><td class="cell-:KSy">5</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>31</strong> 트리에서의 동적 계획법</td><td class="cell-N{wY">4</td><td class="cell-]yKg"></td></tr><tr id="b0d5d124-5627-438a-aa50-c67f42a442c2"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/12%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%20b0d5d1245627438aaa50c67f42a442c2.html">12 정렬</a></td><td class="cell-:KSy">10</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>32</strong> 기하</td><td class="cell-N{wY">8</td><td class="cell-]yKg"></td></tr><tr id="31d2d76c-7986-4c42-8865-514e05c455e6"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/13%20%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%80%E1%85%AA%20%E1%84%86%E1%85%A2%E1%86%B8%2031d2d76c79864c428865514e05c455e6.html">13 집합과 맵</a></td><td class="cell-:KSy">0</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>33</strong> 동적 계획법3</td><td class="cell-N{wY">6</td><td class="cell-]yKg"></td></tr><tr id="ccde4ee4-84bf-43ba-bc34-7315d6f19e32"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/14%20%E1%84%87%E1%85%A2%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%8F%E1%85%B5%E1%86%BC%20ccde4ee484bf43babc347315d6f19e32.html">14 백트래킹</a></td><td class="cell-:KSy">8</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>34</strong> 문자열 알고리즘1</td><td class="cell-N{wY">7</td><td class="cell-]yKg"></td></tr><tr id="415e3061-2be3-424d-b30f-1fe798ef092e"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/15%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B81%20415e30612be3424db30f1fe798ef092e.html">15 동적 계획법1</a></td><td class="cell-:KSy">16</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>35</strong> 위상 정렬</td><td class="cell-N{wY">4</td><td class="cell-]yKg"></td></tr><tr id="6bf82940-9a8f-47ae-b25f-a2c7f1890adf"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/16%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7%206bf829409a8f47aeb25fa2c7f1890adf.html">16 그리디 알고리즘</a></td><td class="cell-:KSy">5</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>36</strong> 최소 공통 조상</td><td class="cell-N{wY">5</td><td class="cell-]yKg"></td></tr><tr id="7d8a61af-0d37-4c0b-ba40-6e00d5424049"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/17%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%AE%E1%84%85%E1%85%A9%E1%86%AB%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%8C%E1%85%A9%E1%84%92%E1%85%A1%E1%86%B8%E1%84%85%E1%85%A9%E1%86%AB%207d8a61af0d374c0bba406e00d5424049.html">17 정수론 및 조합론</a></td><td class="cell-:KSy">12</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>37</strong> 강한 연결 요소</td><td class="cell-N{wY">8</td><td class="cell-]yKg"></td></tr><tr id="9affea12-0590-4249-b5a8-7159116dc35a"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/18%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%A2%E1%86%A8%209affea1205904249b5a87159116dc35a.html">18 스택</a></td><td class="cell-:KSy">6</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>38</strong> 세그먼트 트리</td><td class="cell-N{wY">9</td><td class="cell-]yKg"></td></tr><tr id="9cf8ebb0-24ec-4cf4-a5b4-6c80a9e72a3e"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/19%20%E1%84%8F%E1%85%B2,%20%E1%84%83%E1%85%A6%E1%86%A8%209cf8ebb024ec4cf4a5b46c80a9e72a3e.html">19 큐, 덱</a></td><td class="cell-:KSy">7</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>39</strong> 스위핑</td><td class="cell-N{wY">6</td><td class="cell-]yKg"></td></tr><tr id="7b89e073-cb35-4c0f-b05f-5769cd7c116b"><td class="cell-title"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/Stage%2001%20-%2040%20a5e64e19633447b281428df10b8b6b96/20%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A9%E1%86%A8%207b89e073cb354c0fb05f5769cd7c116b.html">20 분할 정복</a></td><td class="cell-:KSy">10</td><td class="cell-YwmQ"></td><td class="cell-|zZE"><strong>40</strong> 동적 계획법4</td><td class="cell-N{wY">10</td><td class="cell-]yKg"></td></tr></tbody></table></div><h3 id="ba2f376a-3853-4f7a-9437-e0c526a40145" class="">Subpage</h3><div id="7f7abbb5-ce48-4b61-aae4-51c7e0c59379" class="column-list"><div id="7ba24a2e-35f3-4d30-bfc9-4c61d06f35fe" style="width:25%" class="column"><figure id="8382e00c-4630-42ae-a459-5ba895636ba8" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/01%20%E1%84%8B%E1%85%B5%E1%86%B8%E1%84%8E%E1%85%AE%E1%86%AF%E1%84%85%E1%85%A7%E1%86%A8%E1%84%80%E1%85%AA%20%E1%84%89%E1%85%A1%E1%84%8E%E1%85%B5%E1%86%A8%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%89%E1%85%A1%E1%86%AB%208382e00c463042aea4595ba895636ba8.html"><span class="icon">🔗</span>01 입출력과 사칙연산</a></figure><figure id="156c4b9e-94c7-40e3-b4c4-72290bb46e6a" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/02%20if%E1%84%86%E1%85%AE%E1%86%AB%20156c4b9e94c740e3b4c472290bb46e6a.html"><span class="icon">🔗</span>02 if문</a></figure><figure id="e181f250-2b0e-4c17-b30e-8e869f249679" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/03%20for%E1%84%86%E1%85%AE%E1%86%AB%20e181f2502b0e4c17b30e8e869f249679.html"><span class="icon">🔗</span>03 for문</a></figure><figure id="0aa616f2-93d6-4b10-bf9a-8acb09f4a913" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/04%20while%E1%84%86%E1%85%AE%E1%86%AB%200aa616f293d64b10bf9a8acb09f4a913.html"><span class="icon">🔗</span>04 while문</a></figure><figure id="d8b7745c-9a9d-475f-8607-753959a6009a" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/05%201%E1%84%8E%E1%85%A1%E1%84%8B%E1%85%AF%E1%86%AB%20%E1%84%87%E1%85%A2%E1%84%8B%E1%85%A7%E1%86%AF%20d8b7745c9a9d475f8607753959a6009a.html"><span class="icon">🔗</span>05 1차원 배열</a></figure><figure id="23d3119c-7d76-4a6e-be30-c0bface087e3" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/06%20%E1%84%92%E1%85%A1%E1%86%B7%E1%84%89%E1%85%AE%2023d3119c7d764a6ebe30c0bface087e3.html"><span class="icon">🔗</span>06 함수</a></figure><figure id="801a456e-0cdb-4471-8f03-9a4a28df3829" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/07%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%AF%20801a456e0cdb44718f039a4a28df3829.html"><span class="icon">🔗</span>07 문자열</a></figure><figure id="4512e7ad-4524-4485-9b4b-326a3d1b0352" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/08%20%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB%20%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A81%204512e7ad452444859b4b326a3d1b0352.html"><span class="icon">🔗</span>08 기본 수학1</a></figure><figure id="74e35acf-32e0-43c8-aad0-f4b7d6822de5" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/09%20%E1%84%80%E1%85%B5%E1%84%87%E1%85%A9%E1%86%AB%20%E1%84%89%E1%85%AE%E1%84%92%E1%85%A1%E1%86%A82%2074e35acf32e043c8aad0f4b7d6822de5.html"><span class="icon">🔗</span>09 기본 수학2</a></figure><figure id="32c3eca5-f026-47a5-9ca0-790e8117b47c" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/10%20%E1%84%8C%E1%85%A2%E1%84%80%E1%85%B1%2032c3eca5f02647a59ca0790e8117b47c.html"><span class="icon">🔗</span>10 재귀</a></figure></div><div id="e58561ff-def3-4e75-af86-5e160916dc42" style="width:25%" class="column"><figure id="680826b1-2233-440d-ada0-478c47984472" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/11%20%E1%84%87%E1%85%B3%E1%84%85%E1%85%AE%E1%84%90%E1%85%B3%20%E1%84%91%E1%85%A9%E1%84%89%E1%85%B3%20680826b12233440dada0478c47984472.html"><span class="icon">🔗</span>11 브루트 포스</a></figure><figure id="a0a37695-6557-4a21-8742-9debe97856f4" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/12%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%20a0a3769565574a2187429debe97856f4.html"><span class="icon">🔗</span>12 정렬</a></figure><figure id="54879818-72fe-4fd8-ae82-7817b3a35159" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/13%20%E1%84%8C%E1%85%B5%E1%86%B8%E1%84%92%E1%85%A1%E1%86%B8%E1%84%80%E1%85%AA%20%E1%84%86%E1%85%A2%E1%86%B8%205487981872fe4fd8ae827817b3a35159.html"><span class="icon">🔗</span>13 집합과 맵</a></figure><figure id="31494696-5a7c-4404-98ca-1a323a8c0668" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/14%20%E1%84%87%E1%85%A2%E1%86%A8%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%84%8F%E1%85%B5%E1%86%BC%20314946965a7c440498ca1a323a8c0668.html"><span class="icon">🔗</span>14 백트래킹</a></figure><figure id="4a2fdde9-a676-4d59-8766-fb385cb24604" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/15%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B81%204a2fdde9a6764d598766fb385cb24604.html"><span class="icon">🔗</span>15 동적 계획법1</a></figure><figure id="65a94610-9067-49d7-9a1c-fe5f7bace5ff" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/16%20%E1%84%80%E1%85%B3%E1%84%85%E1%85%B5%E1%84%83%E1%85%B5%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B7%2065a94610906749d79a1cfe5f7bace5ff.html"><span class="icon">🔗</span>16 그리디 알고리즘</a></figure><figure id="77b07c46-356b-4f35-aa19-f644e5fe8cee" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/17%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%89%E1%85%AE%E1%84%85%E1%85%A9%E1%86%AB%20%E1%84%86%E1%85%B5%E1%86%BE%20%E1%84%8C%E1%85%A9%E1%84%92%E1%85%A1%E1%86%B8%E1%84%85%E1%85%A9%E1%86%AB%2077b07c46356b4f35aa19f644e5fe8cee.html"><span class="icon">🔗</span>17 정수론 및 조합론</a></figure><figure id="0a34dcd6-fe62-4f4f-91c7-279a9fe3fcb2" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/18%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%A2%E1%86%A8%200a34dcd6fe624f4f91c7279a9fe3fcb2.html"><span class="icon">🔗</span>18 스택</a></figure><figure id="4e37ed14-e5eb-49bf-ab5f-ee3ca72ced55" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/19%20%E1%84%8F%E1%85%B2,%20%E1%84%83%E1%85%A6%E1%86%A8%204e37ed14e5eb49bfab5fee3ca72ced55.html"><span class="icon">🔗</span>19 큐, 덱</a></figure><figure id="0b27040f-b490-4240-8fa1-0b72e9ee0bb1" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/20%20%E1%84%87%E1%85%AE%E1%86%AB%E1%84%92%E1%85%A1%E1%86%AF%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%87%E1%85%A9%E1%86%A8%200b27040fb49042408fa10b72e9ee0bb1.html"><span class="icon">🔗</span>20 분할 정복</a></figure><p id="49e1c1c2-a063-450c-a350-d21fe44bce5a" class="">
+</p></div><div id="5be94409-2d1e-4a2a-9abd-f7e56ca83104" style="width:25%" class="column"><figure id="04c840b4-d5e1-462e-89ce-0eb9ec218fbb" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/21%20%E1%84%8B%E1%85%B5%E1%84%87%E1%85%AE%E1%86%AB%20%E1%84%90%E1%85%A1%E1%86%B7%E1%84%89%E1%85%A2%E1%86%A8%2004c840b4d5e1462e89ce0eb9ec218fbb.html"><span class="icon">🔗</span>21 이분 탐색</a></figure><figure id="c6a0924c-4cc7-4e77-b542-0706c80f1986" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/22%20%E1%84%8B%E1%85%AE%E1%84%89%E1%85%A5%E1%86%AB%E1%84%89%E1%85%AE%E1%86%AB%E1%84%8B%E1%85%B1%20%E1%84%8F%E1%85%B2%20c6a0924c4cc74e77b5420706c80f1986.html"><span class="icon">🔗</span>22 우선순위 큐</a></figure><figure id="83837a58-8d78-4cd5-af43-45753abf4cef" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/23%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B82%2083837a588d784cd5af4345753abf4cef.html"><span class="icon">🔗</span>23 동적 계획법2</a></figure><figure id="1d42e27f-af2a-4984-a7a0-b981ea522092" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/24%20DFS%E1%84%8B%E1%85%AA%20BFS%201d42e27faf2a4984a7a0b981ea522092.html"><span class="icon">🔗</span>24 DFS와 BFS</a></figure><figure id="3187bcd3-263c-4482-9dfe-eaa91bd5d8af" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/25%20%E1%84%8E%E1%85%AC%E1%84%83%E1%85%A1%E1%86%AB%20%E1%84%80%E1%85%A7%E1%86%BC%E1%84%85%E1%85%A9%203187bcd3263c44829dfeeaa91bd5d8af.html"><span class="icon">🔗</span>25 최단 경로</a></figure><figure id="d3d8e61a-ee86-44d1-86f7-47752777b4a9" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/26%20%E1%84%90%E1%85%AE%20%E1%84%91%E1%85%A9%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%90%E1%85%A5%20d3d8e61aee8644d186f747752777b4a9.html"><span class="icon">🔗</span>26 투 포인터</a></figure><figure id="ad3bcbd3-d54c-4c72-82e5-0893465678a3" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/27%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B8%E1%84%80%E1%85%AA%20%E1%84%8E%E1%85%AC%E1%84%83%E1%85%A1%E1%86%AB%E1%84%80%E1%85%A5%E1%84%85%E1%85%B5%20%E1%84%8B%E1%85%A7%E1%86%A8%E1%84%8E%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%A8%20ad3bcbd3d54c4c7282e50893465678a3.html"><span class="icon">🔗</span>27 동적 계획법과 최단거리 역추적</a></figure><figure id="4fe5c247-e065-4bc4-8182-42b79ef0012b" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/28%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%204fe5c247e0654bc4818242b79ef0012b.html"><span class="icon">🔗</span>28 트리</a></figure><figure id="8e9a430e-5e7e-4cdd-8f7d-a656325ce6ff" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/29%20%E1%84%8B%E1%85%B2%E1%84%82%E1%85%B5%E1%84%8B%E1%85%A9%E1%86%AB%20%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AB%E1%84%83%E1%85%B3%208e9a430e5e7e4cdd8f7da656325ce6ff.html"><span class="icon">🔗</span>29 유니온 파인드</a></figure><figure id="d7f25bc3-c4a3-446a-badb-adf61da63ffb" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/30%20%E1%84%8E%E1%85%AC%E1%84%89%E1%85%A9%20%E1%84%89%E1%85%B5%E1%86%AB%E1%84%8C%E1%85%A1%E1%86%BC%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%20d7f25bc3c4a3446abadbadf61da63ffb.html"><span class="icon">🔗</span>30 최소 신장 트리</a></figure></div><div id="827589f6-abca-44e6-981e-774febe7648a" style="width:25%" class="column"><figure id="0ddc4505-2930-46a2-8421-6bc5730ad5ad" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/31%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%84%8B%E1%85%A6%E1%84%89%E1%85%A5%E1%84%8B%E1%85%B4%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B8%200ddc4505293046a284216bc5730ad5ad.html"><span class="icon">🔗</span>31 트리에서의 동적 계획법</a></figure><figure id="e55c748e-fca1-47fd-9d59-fd9a18bba4e4" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/32%20%E1%84%80%E1%85%B5%E1%84%92%E1%85%A1%20e55c748efca147fd9d59fd9a18bba4e4.html"><span class="icon">🔗</span>32 기하</a></figure><figure id="5af91c6c-c5af-43db-8e5d-6ce56c3b3878" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/33%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B83%205af91c6cc5af43db8e5d6ce56c3b3878.html"><span class="icon">🔗</span>33 동적 계획법3</a></figure><figure id="d49ec446-cb0a-4a46-abd3-e3e19da31c2a" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/34%20%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A1%E1%84%8B%E1%85%A7%E1%86%AF%20%E1%84%8B%E1%85%A1%E1%86%AF%E1%84%80%E1%85%A9%E1%84%85%E1%85%B5%E1%84%8C%E1%85%B3%E1%86%B71%20d49ec446cb0a4a46abd3e3e19da31c2a.html"><span class="icon">🔗</span>34 문자열 알고리즘1</a></figure><figure id="d5c6b668-c020-431d-88ff-149c038b0bce" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/35%20%E1%84%8B%E1%85%B1%E1%84%89%E1%85%A1%E1%86%BC%20%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%85%E1%85%A7%E1%86%AF%20d5c6b668c020431d88ff149c038b0bce.html"><span class="icon">🔗</span>35 위상 정렬</a></figure><figure id="8a5121a6-66ee-42c5-b94a-1bc6ccaabf28" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/36%20%E1%84%8E%E1%85%AC%E1%84%89%E1%85%A9%20%E1%84%80%E1%85%A9%E1%86%BC%E1%84%90%E1%85%A9%E1%86%BC%20%E1%84%8C%E1%85%A9%E1%84%89%E1%85%A1%E1%86%BC%208a5121a666ee42c5b94a1bc6ccaabf28.html"><span class="icon">🔗</span>36 최소 공통 조상</a></figure><figure id="4a32dd5e-bb8e-425b-9f02-92556ddb41fd" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/37%20%E1%84%80%E1%85%A1%E1%86%BC%E1%84%92%E1%85%A1%E1%86%AB%20%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF%20%E1%84%8B%E1%85%AD%E1%84%89%E1%85%A9%204a32dd5ebb8e425b9f0292556ddb41fd.html"><span class="icon">🔗</span>37 강한 연결 요소</a></figure><figure id="e6b189cc-da51-4fa0-a3c0-b9e49b96bf7e" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/38%20%E1%84%89%E1%85%A6%E1%84%80%E1%85%B3%E1%84%86%E1%85%A5%E1%86%AB%E1%84%90%E1%85%B3%20%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%20e6b189ccda514fa0a3c0b9e49b96bf7e.html"><span class="icon">🔗</span>38 세그먼트 트리</a></figure><figure id="fb5b3d4f-6f09-4137-a163-a7ab928ff3ff" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/39%20%E1%84%89%E1%85%B3%E1%84%8B%E1%85%B1%E1%84%91%E1%85%B5%E1%86%BC%20fb5b3d4f6f094137a163a7ab928ff3ff.html"><span class="icon">🔗</span>39 스위핑</a></figure><figure id="4d48ee62-d7b6-42a5-bb0e-9701cfe27a05" class="link-to-page"><a href="Baekjoon%20Practice%200ebdb4ccb12a4a759a930a5fa6f721ad/40%20%E1%84%83%E1%85%A9%E1%86%BC%E1%84%8C%E1%85%A5%E1%86%A8%20%E1%84%80%E1%85%A8%E1%84%92%E1%85%AC%E1%86%A8%E1%84%87%E1%85%A5%E1%86%B84%204d48ee62d7b642a5bb0e9701cfe27a05.html"><span class="icon">🔗</span>40 동적 계획법4</a></figure></div></div></div></article></body></html>
