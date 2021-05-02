@@ -4,6 +4,8 @@
 - Period : 2021.05.02 ~
 - Language : Python3
 
+## Issue
+
 ### Date Table
 Index | Name | Date
 ------|------|------
@@ -37,3 +39,19 @@ Index | Name | Date
 28 | 트리 | 
 29 | 유니온 파인드 | 
 30 | 최소 신장 트리 | 
+31 | 트리에서의 동적 계획법 | 
+32 | 기하 | 
+33 | 동적 계획법3 |
+34 | 문자열 알고리즘1 | 
+35 | 위상 정렬 |
+36 | 최소 공통 조상 | 
+37 | 강한 연결 요소 |
+38 | 세그먼트 트리 | 
+39 | 스위핑 | 
+40 | 동적 계획법4 | 
+
+## Update Log
+Index | Date | Contents
+------|------|---------
+01 | 2021.05.02 | Create Repository\n Create README.md
+02 | 2021.05.03 | Update README.md
