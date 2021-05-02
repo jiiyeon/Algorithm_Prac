@@ -6,7 +6,7 @@
 
 ## Issue
 
-### Date Table
+## Date Table
 Index | Name | Date
 ------|------|------
 01 | 입출력과 사칙연산 |
@@ -53,5 +53,5 @@ Index | Name | Date
 ## Update Log
 Index | Date | Contents
 ------|------|---------
-01 | 2021.05.02 | Create Repository\n Create README.md
+01 | 2021.05.02 | Create Repository  Create README.md
 02 | 2021.05.03 | Update README.md
