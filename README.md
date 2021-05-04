@@ -56,5 +56,5 @@ Index | Name | Date
 ## Update Log
 Index | Date | Contents
 ------|------|---------
-01 | 2021.05.02 | Create Repository  Create README.md
+01 | 2021.05.02 | Create Repository &nbsp; Create README.md
 02 | 2021.05.03 | Update README.md
