@@ -6,15 +6,17 @@
 
 &nbsp;
 ## Issue
+00 (fin) python interpreter, pylint error -> VSCODE setting 변경
+01 (ing) VSCODE tasks.json 수정
 
 &nbsp;
 ## Date Table
 Index | Name | Date
 ------|------|------
 01 | 입출력과 사칙연산 | 2021.05.05
-02 | if 문 | 
-03 | for 문 | 
-04 | while 문 | 
+02 | if 문 | 2021.05.06
+03 | for 문 | 2021.05.06
+04 | while 문 | 2021.05.06
 05 | 1차원 배열 | 
 06 | 함수 | 
 07 | 문자열 | 
@@ -58,3 +60,6 @@ Index | Date | Contents
 ------|------|---------
 01 | 2021.05.02 | Create Repository & README.md
 02 | 2021.05.03 | Update README.md
+03 | 2021.05.05 | Solve Stage01
+04 | 2021.05.06 | run, import error 해결
+05 | 2021.05.06 | Solve Stage02, 03, 04, 05, 06
