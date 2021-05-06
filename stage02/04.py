@@ -1,10 +1,10 @@
-H, M = map(int, input().split())
+x, y = map(int, input().split())
 
-if (45 <= M and M <= 59) :
-    M -= 45
+if (x > 0 & y > 0) :
+    print("1")
+elif (x < 0 & y > 0) :
+    print("2")
+elif (x < 0 & y < 0) :
+    print("3")
 else :
-    M += 15
-    H--
-    if (H < 0) :
-        H += 24
-print(H, M)
+    print("4")
