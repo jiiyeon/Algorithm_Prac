@@ -10,4 +10,4 @@ while (i < 9) :
     i += 1
 
 index = num.index(Max)
-print(num[index], index)
+print(num[index], index + 1)
