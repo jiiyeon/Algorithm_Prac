@@ -1,4 +1,4 @@
-def     div_count(int) :
+def     decom_check(int) :
 
     i = 0
     sum = int
@@ -13,7 +13,7 @@ i = 0
 int = 1
 decom_lst = []
 while (int <= 10000) :
-    decom_lst.append(div_count(int))
+    decom_lst.append(decom_check(int))
     int += 1
 decom_lst = set(decom_lst)
 
