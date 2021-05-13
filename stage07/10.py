@@ -1,13 +1,13 @@
 N = int(input())
 
-alpha_lst = []
-i = 97
-while (i < 123 ) :
-    alpha_lst.append(chr(i))
-    i += 1
-
 def     group_check(char) :
-    
+
+    alpha_lst = []
+    i = 97
+    while (i < 123 ) :
+        alpha_lst.append(chr(i))
+        i += 1
+
     sen = list(char)
 
     i = 0
@@ -37,7 +37,7 @@ def     group_check(char) :
 num = 0
 cnt = 0
 while (num < N) :
-
+    
     char = input()
     if (group_check(char) == 1) :
         cnt += 1
