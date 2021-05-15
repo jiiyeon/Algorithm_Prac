@@ -11,7 +11,7 @@ def     word_append(lst) :
     alphanu = list(r"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\$%*+-./:")
 
     i = 2
-    res = "\0"
+    res = ""
     while (i < len(lst)) :
         if (lst[i] in alphanu) :
             res += lst[i] * N

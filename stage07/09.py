@@ -6,4 +6,4 @@ while (i < len(char_lst)) :
     sen = sen.replace(char_lst[i], "*")
     i += 1
 
-print(sen)
+print(len(sen))
