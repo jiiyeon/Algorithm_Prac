@@ -25,19 +25,27 @@ def     cnt_people(floor, col) :
         total_lst.append(element_lst)
 
         r = 0
+        ch_lst = []
         while (r < len(element_lst)) :
-            element_lst[r] = sub_sum(element_lst, r)
+            ch_lst.append(sub_sum(element_lst, r))
             r += 1
         i +=1
+        element_lst = ch_lst
     
     return(total_lst[floor][col - 1])
 
 
 i = 0
+cnt_lst = []
 while (i < size) :
 
     floor = int(input())
     col = int(input())
 
-    print(cnt_people(floor, col))
+    cnt_lst.append(cnt_people(floor, col))
+    i += 1
+
+i = 0
+while (i < size) :
+    print(cnt_lst[i])
     i += 1
