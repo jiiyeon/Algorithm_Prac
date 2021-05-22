@@ -17,13 +17,12 @@ def     prime_check(int) :
     
     return(flag)
 
-prime_lst = []
 i = 2
 while (i <= N) :
     if (N == 1) :
         break
-    elif ((prime_check(i)) == 1 and (N % i == 0)) :
-        print(i)
-        N /= i
-    else :
-        i += 1
+    elif (prime_check(i) == 1) :
+        while (N % i == 0) :
+            print(i)
+            N /= i
+    i += 1
