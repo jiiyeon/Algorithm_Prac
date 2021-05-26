@@ -1,5 +1,4 @@
 #에라토스테네스의 체 정의
-
 def     ft_prime_lst(N) :
     #초기화 (1은 소수가 아니므로 False로 시작)
     sieve = [False] + [True] * (N -  1)
@@ -25,5 +24,11 @@ def     ft_prime_lst(N) :
     
     return (prime_lst)
 
-N = int(input())
-print(ft_prime_lst(N))
+M, N = map(int, input().split())
+prime_lst = ft_prime_lst(N)
+
+i = 0
+while (i < len(prime_lst)) :
+    if (prime_lst[i] >= M) :
+        print(prime_lst[i])
+    i += 1
