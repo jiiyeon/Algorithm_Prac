@@ -4,21 +4,21 @@ def     ft_prime_lst(N) :
     #초기화 (1은 소수가 아니므로 False로 시작)
     sieve = [False] + [True] * (N -  1)
 
-    mid = int(N ** 0.5)
+    #mid = int(N ** 0.5)
     i = 1
-    while (i < mid) :
+    while (i < N) :
         if (sieve[i] == True) :
 
-            j = 1
-            while (i * j < N) :
-                sieve[i ** j] = False
-                j += 1
+            j = i
+            while (i + j < N) :
+                sieve[i + j] = False
+                j += i
         i += 1
     print(sieve)
     
     prime_lst = []
     i = 1
-    while (i < mid) :
+    while (i < N) :
         if (sieve[i] == True) :
             prime_lst.append(i + 1)
         i += 1
