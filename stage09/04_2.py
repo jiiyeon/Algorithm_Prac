@@ -10,10 +10,11 @@ def     ft_prime_lst(N) :
         if (sieve[i] == True) :
 
             j = 1
-            while (i * j < mid) :
-                sieve[i * j] = False
+            while (i * j < N) :
+                sieve[i ** j] = False
                 j += 1
         i += 1
+    print(sieve)
     
     prime_lst = []
     i = 1
