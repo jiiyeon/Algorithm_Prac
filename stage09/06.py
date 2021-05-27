@@ -24,32 +24,25 @@ def     ft_prime_lst(N) :
     
     return (prime_lst)
 
-#test case 입력
+#차이가 가장 적은 케이스를 출력하므로 index = N // 2 부터 시작
 i = 0
-test_lst = []
 while (i < size) :
-    N = int(input())
-    test_lst.append(N)
-    i += 1
-
-#차이가 작은 골드바흐 파티션을 출력하므로 가운데 지점부터 시작
-i = 0
-a = 0
-while (i < size) :
-    prime_lst = ft_prime_lst(test_lst[i])
+    NUM = int(input())
+    prime_lst = ft_prime_lst(NUM)
     N = len(prime_lst)
     
-    m = 0
-    a_lst = []
-    b_lst = []
-    while (m < N) :
+    m = N // 2
+    flag = 1
+    while (m >= 0) :
+
+        if (flag == 0) :
+            break
 
         n = m
         while (n < N) :
-            if (prime_lst[m] + prime_lst[n] == test_lst[i]) :
-                a_lst.append(prime_lst[m])
-                b_lst.append(prime_lst[n])
+            if (prime_lst[m] + prime_lst[n] == NUM) :
+                print(prime_lst[m], prime_lst[n], sep=" ")
+                flag = 0
             n += 1
-        m += 1
-    print(a_lst[-1], b_lst[-1], sep=" ")
+        m -= 1
     i += 1
