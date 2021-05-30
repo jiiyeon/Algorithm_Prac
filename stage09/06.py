@@ -24,13 +24,15 @@ def     ft_prime_lst(N) :
     
     return (prime_lst)
 
-#차이가 가장 적은 케이스를 출력하므로 index = N // 2 부터 시작
+#차이가 가장 적은 케이스를 출력하므로 NUM // 2 인 index 부터 시작
 i = 0
 while (i < size) :
     NUM = int(input())
     prime_lst = ft_prime_lst(NUM)
     N = len(prime_lst)
 
+    #list comprehension
+    #두 수 사이의 차이가 가장 작은 케이스를 출력하므로, 중간값부터 시작하기위해서 시작 인덱스를 설정함 
     m = max([x for x in range(0, len(prime_lst)) if prime_lst[x] <= NUM  // 2])
     flag = 1
     while (m >= 0) :

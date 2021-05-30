@@ -8,7 +8,7 @@ while (i < 3) :
     y_lst.append(y)
     i += 1
 
-#각 리스트에서 한번씩만 저장된 원소를 출력
+#x_lst에 한번만 저장된 원소를 출력
 if (x_lst[0] == x_lst[1]) :
     print(x_lst[2], end=" ")
 elif (x_lst[0] != x_lst[1]) :
@@ -17,6 +17,7 @@ elif (x_lst[0] != x_lst[1]) :
     else :
         print(x_lst[0], end=" ")
 
+#y_lst에 한번만 저장된 원소를 출력
 if (y_lst[0] == y_lst[1]) :
     print(y_lst[2])
 elif (y_lst[0]!= y_lst[1]) :

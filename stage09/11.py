@@ -1,5 +1,6 @@
 #조건1 : 류재명이 있을 수 있는 좌표의 수 == 조규현의 원(조규현 시점에서 류재명 좌표후보의 집합)과 백승환의 원이 만나는 교점의 개수
 # 두 원의 교점의 수는 중점거리의 연산을 통해서 알 수 있음
+#조건2 : 류재명이 있을 수 있는 좌표의 수가 무한대일 때 == 두 원이 일치할 때
 
 import sys
 import math
@@ -14,9 +15,10 @@ while (i < size) :
 
     if (d == 0 and r1 == r2) :
         print(-1)
-    elif (d == r1 + r2) :
+    #두 원이 외접 또는 내접일때
+    elif (d == r1 + r2 or d == abs(r1 - r2)) :
         print(1)
-    elif (abs(r1 - r2) <= d and d < r1 + r2) :
+    elif (abs(r1 - r2) < d and d < r1 + r2) :
         print(2)
     else :
         print(0)
