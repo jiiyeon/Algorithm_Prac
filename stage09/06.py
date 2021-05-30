@@ -30,8 +30,8 @@ while (i < size) :
     NUM = int(input())
     prime_lst = ft_prime_lst(NUM)
     N = len(prime_lst)
-    
-    m = N // 2
+
+    m = max([x for x in range(0, len(prime_lst)) if prime_lst[x] <= NUM  // 2])
     flag = 1
     while (m >= 0) :
 
