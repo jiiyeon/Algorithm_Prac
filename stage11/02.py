@@ -4,8 +4,7 @@ def     div_sum(INIT) :
 
     Goal = int(INIT)
 
-    #시간이 오래걸리므로 초기값의 자릿수에 맞춰서 생성자를 찾기 시작함
-    n = Goal - 9 * (len(INIT) - 1)
+    n = 1
     while (1) :
 
         res = n

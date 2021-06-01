@@ -38,6 +38,8 @@ while (r < (row - 7)) :
                     elif (data[r_cycle][s_cycle] != "B") :
                         cnt_b += 1
                 else :
+
+                    #W로 시작하는 줄의 다음줄은 B로 시작해야함
                     if (data[r_cycle][s_cycle] != "B") :
                         cnt_w += 1
                     elif (data[r_cycle][s_cycle] != "W") :

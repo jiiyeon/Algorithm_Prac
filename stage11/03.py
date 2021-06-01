@@ -17,8 +17,8 @@ def     ft_cnt(size, row) :
     return (cnt)
 
 size = int(sys.stdin.readline().strip())
-data = []
 i = 0
+data = []
 while (i < size) :
     w, h = map(int, sys.stdin.readline().split())
     data.append([w, h])

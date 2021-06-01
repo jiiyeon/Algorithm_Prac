@@ -20,4 +20,5 @@ N = int(sys.stdin.readline())
 hanoi(N, 1, 2, 3)
 
 print(len(path))
+#문자열에서 join func 활용
 print("\n".join([" ".join(str(i) for i in row) for row in path]))
