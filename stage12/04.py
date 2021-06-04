@@ -18,10 +18,15 @@ def     ft_freq(list):
         i += 1
 
     MAX = max(freq_dict.values())
-    max_lst = list(freq_dict[lambda x : freq_dict[x] == MAX].keys())
-    max_lst.sorted()
+    max_lst = [x for x in freq_dict if freq_dict[x] == MAX]
+    max_lst = sorted(max_lst)
 
-    return max_lst[-2]
+    if len(max_lst) == 1:
+        res = max_lst[0]
+    else :
+        res = max_lst[1]
+
+    return res
 
 def     ft_range(list):
     sort_lst = sorted(list)
