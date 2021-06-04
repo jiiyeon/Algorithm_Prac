@@ -11,17 +11,18 @@ def     ft_mid(list):
     return sort_lst[N]
 
 def     ft_freq(list):
-    freq_dict = {i : 0 for i in set(list)}
+    freq_dict = {i :0 for i in set(list)}
     i = 0
     while i < len(list):
         freq_dict[list[i]] += 1
         i += 1
 
-    MAX = 0
-    if len(list) == 1:
-        MAX = list[0]
+    MAX = max(freq_dict.values())
+    max_dict = freq_dict[lambda x : freq_dict[x] == MAX]
+    if len(max_dict) == 1:
+        res = max_dict[MAX]
     else :
-        MAX = max(freq_dict.values())
+        res = 
     
     return freq_dict[MAX]
 
