@@ -2,7 +2,8 @@ import sys
 
 def     ft_sum(list):
 
-    return sum(list) // len(list)
+    #소수 첫째자리에서 반올림. //을 쓰면 몫만 남기고 버림
+    return round(sum(list) / len(list))
 
 def     ft_mid(list):
     sort_lst = sorted(list)
