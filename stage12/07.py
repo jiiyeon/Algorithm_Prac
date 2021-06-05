@@ -10,7 +10,7 @@ while i < size:
     i += 1
 
 #정렬 우선순위 : x > y
-sort_data = sorted(data, key=lambda x : (x[0], x[1]))
+sort_data = sorted(data, key=lambda x : (x[1], x[0]))
 i = 0
 while i < size:
     print(sort_data[i][0], sort_data[i][1])
