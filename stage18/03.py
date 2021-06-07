@@ -4,7 +4,7 @@ size = int(sys.stdin.readline())
 i = 0
 res = []
 while i < size:
-    stack = [sys.stdin.readline().strip()]
+    stack = list(sys.stdin.readline().strip())
 
     cnt = 0
     while len(stack) != 0:
