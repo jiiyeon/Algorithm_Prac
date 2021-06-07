@@ -1,6 +1,5 @@
 import sys
 
-res = []
 while 1:
     raw = sys.stdin.readline().rstrip()
 
@@ -18,7 +17,7 @@ while 1:
         
         #case2 : 오른쪽 소괄호
         elif (w == ")"):
-            if not stack or stack[-1] != "(":
+            if (not stack) or (stack[-1] == "["):
                 flag = 0
                 break
             elif stack[-1] == "(":
@@ -26,15 +25,13 @@ while 1:
         
         #case3 : 오른쪽 대괄호
         elif (w == "]"):
-            if not stack or stack[-1] != "[":
+            if (not stack) or (stack[-1] == "("):
                 flag = 0
                 break
             elif stack[-1] == "[":
                 stack.pop()
 
     if not stack and flag == 1:
-        res.append("YES")
+        print("YES")
     else :
-        res.append("NO")
-
-print("\n".join(res))
+        print("NO")
