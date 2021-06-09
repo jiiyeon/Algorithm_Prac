@@ -1,11 +1,10 @@
 import sys
 
-raw = sys.stdin.readline().strip().split(".")
-print(raw)
+raw = sys.stdin.readline().split(".")
 
 i = 0
 res = []
-while i < len(raw):
+while 1:
 
     data = list(raw[i])
     cnt_lst = [0, 0]

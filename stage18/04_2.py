@@ -33,8 +33,8 @@ while 1:
                 stack.pop()
 
     if not stack and flag == 1:
-        res.append("YES")
+        res.append("yes")
     else :
-        res.append("NO")
+        res.append("no")
 
 print("\n".join(res))
