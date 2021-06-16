@@ -1,6 +1,5 @@
 import sys
 from collections import deque
-from typing import no_type_check_decorator
 
 N, K = map(int, sys.stdin.readline().split())
 N_deque = deque([x for x in range(1, N + 1)])
