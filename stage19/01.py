@@ -41,7 +41,7 @@ while i < size:
     sen = sys.stdin.readline().split()
 
     if sen[0] == "push":
-        ft_push(sen[1])
+        ft_push(int(sen[1]))
     elif sen[0] == "pop":
         print(ft_pop())
     elif sen[0] == "size":
