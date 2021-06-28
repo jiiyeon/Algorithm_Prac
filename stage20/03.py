@@ -17,7 +17,7 @@ def     solve(x, y, size):
                 solve(x, y, k)
                 solve(x + k, y, k)
                 solve(x + 2 * k, y, k)
-                
+                solve(x, y + k, k)
 
 if __name__ = "__main__":
     size = int(sys.stdin.readline().rstrip())
