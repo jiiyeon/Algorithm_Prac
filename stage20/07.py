@@ -1,27 +1,38 @@
 #조건1 : 주어진 행렬을 2차원 배열 데이터로 입력
 #조건2 : 행렬의 각 원소를 그대로 곱하면 숫자가 매우 커지므로 나머지 단위에서 어떻게 처리할지 수리적 접근필요
+#조건3 : 시간 복잡도를 고려하여 logP만큼 수행
 
 import sys
 
-def     ft_mod(a, b, p):
+# 조건2 구현
+def     ft_multi_mod(A, B, N):
 
-    #n = a * m + b일 때 n ** 2 = a * (m ** 2) + 2 * a * b * m + b ** 2 = { a * m + 2 * a * b} * m + b ** 2
-    # 즉 b의 거듭제곱(m으로 묶었을 때 상수항)을 m으로 나눈 나머지가 원래 수를 m으로 나눈 나머지와 같음
-    mod = a % b
-    return (mod ** p) % b
-    
+    X = [[0] * N for _ in range(N)]
+    for i in range(N):
+        for j in range(N):
+            for k in range(N):
+                X[i][j] += A[i][k] * B[k][j]
+                X[i][j] %= 1000
+    return X    
 
+#시작함수
+# 조건3 적용
 if __name__ == "__main__":
-    N, P = map(int, sys.stdin.readline().split())
+    N, p = map(int, sys.stdin.readline().split())
     
     #행렬 입력
     A = []
     for i in range(N):
         A.append(list(map(int, sys.stdin.readline().split())))
 
-    X = [[0] * N for _ in range(N)]
-    for i in range(N):
-        for j in range(N):
-            for m in range(N):
-                
-            A[i][j] = ft_mod(A[i][j])
+    E = [[1 if i == j else 0 for i in range(N)] for j in range(N)]
+    while p != 1:
+        if p % 2:
+            X = ft_multi_mod(A, E, N)
+            p -= 1
+        else:
+            A = ft_multi_mod(A, A, N)
+            p // 2
+    X = ft_multi_mod(X, A, N)
+    for row in X:
+        print(*row)
