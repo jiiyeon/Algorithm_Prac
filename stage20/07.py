@@ -26,13 +26,19 @@ if __name__ == "__main__":
         A.append(list(map(int, sys.stdin.readline().split())))
 
     E = [[1 if i == j else 0 for i in range(N)] for j in range(N)]
+    X = []
+    #p == 1로 주어진 경우 아래 반복문을 거치지 않으므로 X가 빈 배열인채로 ft_multi_mod에 들어감
+    # 따라서 이 경우 X = E로 선언
+    if p == 1:
+        X = E
+
     while p != 1:
         if p % 2:
             X = ft_multi_mod(A, E, N)
             p -= 1
         else:
             A = ft_multi_mod(A, A, N)
-            p // 2
+            p //= 2
     X = ft_multi_mod(X, A, N)
     for row in X:
         print(*row)
