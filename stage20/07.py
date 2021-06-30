@@ -33,12 +33,15 @@ if __name__ == "__main__":
         X = E
 
     while p != 1:
+
+        tmp = A[:]
         if p % 2:
-            X = ft_multi_mod(A, E, N)
+            X = ft_multi_mod(E, A, N)
             p -= 1
         else:
-            A = ft_multi_mod(A, A, N)
+            A = ft_multi_mod(tmp, tmp, N)
             p //= 2
+            
     X = ft_multi_mod(X, A, N)
     for row in X:
         print(*row)
