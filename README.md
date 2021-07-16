@@ -91,3 +91,4 @@ Index | Date | Contents
 31 | 2021.06.28 | Solve Stage15
 32 | 2021.06.28 | Solve Stage16
 33 | 2021.06.28 | Solve Stage20
+34 | 2021.07.17 | Solve
