@@ -6,8 +6,8 @@
 
 &nbsp;
 ## Issue
-`00` &nbsp; **fin** python interpreter, pylint error -> VSCODE setting 변경  
-`01` &nbsp; **ing** VSCODE tasks.json 수정  
+`00` &nbsp; **fin** &nbsp; python interpreter, pylint error -> VSCODE setting 변경  
+`01` &nbsp; **ing** &nbsp; VSCODE tasks.json 수정  
 `02` 
 
 &nbsp;
